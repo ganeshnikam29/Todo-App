@@ -41,7 +41,7 @@ function todoReducer(state, action) {
           : todo
       );
     case "CHANGE_FILTER": 
-      const newTodosList = JSON.parse(JSON.stringify(state));
+      const newTodosList = JSON.parse(JSON.stringify(action.payload.todos));
       if (action.payload.filterValue === "all") {
         return [...state];
       } else {
