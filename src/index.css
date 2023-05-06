@@ -4,4 +4,4 @@ body {
 
 .main-container {
     min-height: calc(100vh - 3rem); /* Set to 100vh minus the height of the footer */
-  }
+}
