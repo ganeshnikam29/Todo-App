@@ -1,2 +1,2 @@
-Simple Todo Application implemented using UseReducer Hook.
-![todoApp](https://user-images.githubusercontent.com/49611878/236519317-a4657cd9-33f3-42a7-91cd-3d881e203b97.JPG)
+Simple Todo Application implemented using UseReducer Hook and same App implemented using Redux Toolkit
+![TodoAppImproved](https://user-images.githubusercontent.com/49611878/236623212-0aa23b2d-fe60-4a56-a689-278ee61d6654.JPG)
