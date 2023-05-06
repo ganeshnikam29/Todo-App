@@ -5,8 +5,8 @@ import { TodoWithReducer } from "./Components/TodoWithReducer";
 import { TodoWithRT } from "./Components/TodoWithRT";
 import { Provider } from 'react-redux';
 import { store } from "./store";
-import { Header } from "./Components/Header";
-import { Footer } from "./Components/Footer";
+import { Header } from "./Components/Header/Header";
+import { Footer } from "./Components/Footer/Footer";
 import { Outlet } from 'react-router-dom'
 
 const App = () => {

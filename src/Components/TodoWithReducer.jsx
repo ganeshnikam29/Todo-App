@@ -45,7 +45,6 @@ function todoReducer(state, action) {
       if (action.payload.filterValue === "all") {
         return [...state];
       } else {
-        console.log(newTodosList);
         const filteredTodoList = newTodosList.filter(
           (todo) => todo.priority === action.payload.filterValue
         );
