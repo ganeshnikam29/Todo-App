@@ -50,9 +50,7 @@ const TodoSlice = createSlice({
       state.priority = action.payload;
     },
     changeFilterValue: (state, action) => {
-      state.filterValue = action.payload.value;
-      const filteredTodos = action.payload.todos.filter((todo) => todo.priority === state.filterValue);
-      state.todos= filteredTodos;
+      state.filterValue = action.payload;
     },
     changeTodoStatus: (state, action) => {
       const { status, id } = action.payload;

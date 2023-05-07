@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectTodos, selectInput, selectPriority } from "../selectors";
+import { selectInput, selectPriority, selectFilteredTodos } from "../selectors";
 import {
   addTodo,
   changeInput,
@@ -18,7 +18,7 @@ import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 
 let nextid = 4;
 export const TodoWithRT = () => {
-  const todos = useSelector(selectTodos);
+   const todos = useSelector(selectFilteredTodos)
   const input = useSelector(selectInput);
   const priority = useSelector(selectPriority);
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ export const TodoWithRT = () => {
         <TodoSelect
           classNames="todo-select-filter"
           onChangePriority={(value) =>
-            dispatch(changeFilterValue({ value, todos }))
+            dispatch(changeFilterValue(value))
           }
           isFilter
         />

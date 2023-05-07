@@ -33,6 +33,7 @@ const initialTodos = [
 export const Todo = () => {
   const [input, setInput] = useState("");
   const [priority, setPriority] = useState("low");
+  const [filterValue, setFilterValue] = useState('all');
   const [todos, setTodos] = useState(initialTodos);
 
   const handleAddTodo = () => {
@@ -63,14 +64,13 @@ export const Todo = () => {
     setTodos(updatedTodos);
   };
 
-  const handlerFilter = (filterValue) => {
-    if (action.payload.filterValue !== "all") {
-      const filteredTodoList = todos.filter(
-        (todo) => todo.priority === filterValue
-      );
-      setTodos(filteredTodoList);
+  const getTodos = () => {
+    if(filterValue === 'all') {
+      return todos
+    } else {
+      return todos.filter((todo) => todo.priority === filterValue)
     }
-  };
+  }
 
   return (
     <div className="to-do-container">
@@ -96,13 +96,13 @@ export const Todo = () => {
         </label>
         <TodoSelect
           classNames="todo-select-filter"
-          onChangePriority={(value) => handlerFilter(value)}
+          onChangePriority={(value) => setFilterValue(value)}
           isFilter
         />
       </div>
       <TodoMeta todos={todos} />
       <ul>
-        {todos.map((todo, index) => {
+        {getTodos().map((todo, index) => {
           return (
             <li className="list-item" key={todo.id}>
               <input
