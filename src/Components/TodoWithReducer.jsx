@@ -1,55 +1,60 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { Button } from "./Button";
 import { TodoMeta } from "./TodoMeta";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import "./Todo.css";
 import { TodoSelect } from "./TodoSelect";
+import { stat } from "fs";
 
-const initialTodos = [
-  {
-    title: "Buy Notebook",
-    id: 1,
-    done: false,
-    priority: "low",
-  },
-  {
-    title: "Watch IPL",
-    id: 2,
-    done: false,
-    priority: "medium",
-  },
-  {
-    title: "Read React Docs",
-    id: 3,
-    done: false,
-    priority: "high",
-  },
-];
+const TodosInitial = {
+  input: "",
+  priority: "low",
+  filterValue: "all",
+  todos: [
+    {
+      title: "Buy Notebook",
+      id: 1,
+      done: false,
+      priority: "low",
+    },
+    {
+      title: "Watch IPL",
+      id: 2,
+      done: false,
+      priority: "medium",
+    },
+    {
+      title: "Read React Docs",
+      id: 3,
+      done: false,
+      priority: "high",
+    },
+  ],
+};
 
 function todoReducer(state, action) {
   switch (action.type) {
+    case "CHANGE_INPUT":
+      return { ...state, input: action.payload };
+    case "CHANGE_PRIORITY":
+      return { ...state, priority: action.payload };
     case "ADD_TODO":
-      return [...state, action.payload];
+      return { ...state, todos: [...state.todos, action.payload] };
     case "DELETE_TODO":
-      const todoList = [...state]
-      return todoList.filter((todo) => todo.id !== action.payload);
+      const filteredTodos = state.todos.filter(
+        (todo) => todo.id !== action.payload
+      );
+      return { ...state, todos: [...filteredTodos] };
     case "CHANGE_TODO_STATUS":
-      return state.map((todo) =>
+      const changedStatusTodo = state.todos.map((todo) =>
         todo.id === action.payload.id
           ? { ...todo, done: action.payload.status }
           : todo
       );
-    case "CHANGE_FILTER": 
-      const newTodosList = JSON.parse(JSON.stringify(action.payload.todos));
-      if (action.payload.filterValue === "all") {
-        return [...state];
-      } else {
-        const filteredTodoList = newTodosList.filter(
-          (todo) => todo.priority === action.payload.filterValue
-        );
-        return filteredTodoList;
-      }
+      return { ...state, todos: [...changedStatusTodo] };
+    case "CHANGE_FILTER":
+      return { ...state, filterValue: action.payload.filterValue };
     default:
       return state;
   }
@@ -58,21 +63,25 @@ function todoReducer(state, action) {
 let nextid = 0;
 
 export const TodoWithReducer = () => {
-  const [input, setInput] = useState("");
-  const [priority, setPriority] = useState("low");
-  const [state, dispatch] = useReducer(todoReducer, initialTodos);
-  
+  const [state, dispatch] = useReducer(todoReducer, TodosInitial);
+
+  const filterState = () => {
+    if (state.filterValue === "all") {
+      return state.todos;
+    } else {
+      return state.todos.filter((todo) => todo.priority === state.filterValue);
+    }
+  };
 
   // Add functionality
   const handleAddTodo = () => {
-    //Write Add Logic
     dispatch({
       type: "ADD_TODO",
       payload: {
-        title: input,
+        title: state.input,
         id: nextid++,
         done: false,
-        priority: priority
+        priority: state.priority,
       },
     });
   };
@@ -100,13 +109,12 @@ export const TodoWithReducer = () => {
   //apply filter logic
   const handlerFilter = (filterValue) => {
     dispatch({
-      type: 'CHANGE_FILTER',
+      type: "CHANGE_FILTER",
       payload: {
         filterValue: filterValue,
-        todos: state
-      }
-    })
-  }
+      },
+    });
+  };
 
   return (
     <div className="to-do-container">
@@ -114,12 +122,16 @@ export const TodoWithReducer = () => {
         <input
           className="todo-input"
           placeholder="Enter Todo"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
+          value={state.input}
+          onChange={(e) =>
+            dispatch({ type: "CHANGE_INPUT", payload: e.target.value })
+          }
         />
-        <TodoSelect 
+        <TodoSelect
           classNames="todo-select"
-          onChangePriority={value => setPriority(value)}
+          onChangePriority={(value) =>
+            dispatch({ type: "CHANGE_PRIORITY", payload: value })
+          }
         />
         <Button classNames="primary" handleClick={handleAddTodo}>
           <AiOutlinePlus />
@@ -127,16 +139,18 @@ export const TodoWithReducer = () => {
         </Button>
       </div>
       <div className="filter-container">
-        <label htmlFor="priority-filter" className="filter-label">Filter by Priority</label>
-        <TodoSelect 
-           classNames="todo-select-filter"
-           onChangePriority={(value) => handlerFilter(value)}
-           isFilter
+        <label htmlFor="priority-filter" className="filter-label">
+          Filter by Priority
+        </label>
+        <TodoSelect
+          classNames="todo-select-filter"
+          onChangePriority={(value) => handlerFilter(value)}
+          isFilter
         />
       </div>
-      <TodoMeta todos={state} />
+      <TodoMeta todos={state.todos} />
       <ul>
-        {state.map((todo) => {
+        {filterState().map((todo) => {
           return (
             <li key={todo.id} className="list-item">
               <input
