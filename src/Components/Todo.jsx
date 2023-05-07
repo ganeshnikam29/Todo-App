@@ -5,6 +5,7 @@ import { TodoMeta } from "./TodoMeta";
 import { TodoSelect } from "./TodoSelect";
 import { Button } from "./Button";
 import "./Todo.css";
+import { UseHookInfo } from "./Info/useHookInfo";
 
 
 let nextId = 4;
@@ -73,6 +74,7 @@ export const Todo = () => {
   }
 
   return (
+    <main className="content">
     <div className="to-do-container">
       <div className="add-todo-input">
         <input
@@ -136,5 +138,7 @@ export const Todo = () => {
         })}
       </ul>
     </div>
+    <UseHookInfo/>
+    </main>
   );
 };

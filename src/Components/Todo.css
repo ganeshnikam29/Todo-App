@@ -37,12 +37,12 @@ ul {
     border: 1px solid gray;
     padding: 20px;
     border-radius: 5px;
-    position: absolute;
+    /* position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    margin: auto;
+    margin: auto; */
     background-color: azure;
   }
   
@@ -104,3 +104,26 @@ ul {
     border-radius: 6px;
   }
   
+  .info-container {
+    width: 400px;
+    height: 480px;
+    border: 1px solid gray;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: beige;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+  }
+
+  .content-list-item {
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    font-family: 'Comme', sans-serif;
+    text-align: justify;
+  }

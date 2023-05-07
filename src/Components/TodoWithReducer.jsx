@@ -6,6 +6,7 @@ import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import "./Todo.css";
 import { TodoSelect } from "./TodoSelect";
 import { stat } from "fs";
+import { UseReducerInfo } from "./Info/useReducerInfo";
 
 const TodosInitial = {
   input: "",
@@ -117,6 +118,7 @@ export const TodoWithReducer = () => {
   };
 
   return (
+    <main className="content">
     <div className="to-do-container">
       <div className="add-todo-input">
         <input
@@ -183,5 +185,7 @@ export const TodoWithReducer = () => {
         })}
       </ul>
     </div>
+    <UseReducerInfo />
+    </main>
   );
 };

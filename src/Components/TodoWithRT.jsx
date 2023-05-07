@@ -15,6 +15,7 @@ import { Button } from "./Button";
 import { TodoMeta } from "./TodoMeta";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
+import { UseReduxToolKit } from "./Info/UseReduxToolkit";
 
 let nextid = 4;
 export const TodoWithRT = () => {
@@ -24,6 +25,7 @@ export const TodoWithRT = () => {
   const dispatch = useDispatch();
 
   return (
+    <main className="content">
       <div className="to-do-container">
       <div className="add-todo-input">
         <input
@@ -105,5 +107,7 @@ export const TodoWithRT = () => {
         })}
       </ul>
     </div>
+    <UseReduxToolKit />
+    </main>
   );
 };
