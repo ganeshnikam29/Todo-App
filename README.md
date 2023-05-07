@@ -1,6 +1,6 @@
 Simple Todo Application implemented :
    By using useState Hook
-   By using useReducer Hook,
+   By using useReducer Hook,	
    By using Redux Toolkit 
    
    
