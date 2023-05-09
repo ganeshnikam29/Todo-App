@@ -3,7 +3,7 @@ import React from "react";
 export const UseHookInfo = () => {
   return (
     <div className="info-container">
-      <h3>useState Hook</h3>
+      <h3 className="info-header">useState Hook</h3>
       <p>
         <ul>
           <li className="content-list-item">
@@ -18,6 +18,9 @@ export const UseHookInfo = () => {
           <li className="content-list-item">
             <b>useState</b> is suitable for managing simple state values that
             don't require complex logic or updates.
+          </li>
+          <li>
+            <b>useState</b> is used for managing simple state,
           </li>
         </ul>       
       </p>

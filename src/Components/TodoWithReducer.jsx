@@ -1,11 +1,10 @@
-import React, { useEffect, useReducer } from "react";
+import React, {useReducer } from "react";
 import { Button } from "./Button";
 import { TodoMeta } from "./TodoMeta";
 import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import "./Todo.css";
 import { TodoSelect } from "./TodoSelect";
-import { stat } from "fs";
 import { UseReducerInfo } from "./Info/useReducerInfo";
 
 const TodosInitial = {

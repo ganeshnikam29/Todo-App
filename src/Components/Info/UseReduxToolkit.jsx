@@ -3,7 +3,7 @@ import React from "react";
 export const UseReduxToolKit = () => {
   return (
     <div className="info-container">
-      <h3>Redux Toolkit :  state Management Library</h3>
+      <h3 className="info-header">Redux Toolkit :  State Management Library</h3>
       <p>
         <ul>
           <li className="content-list-item">

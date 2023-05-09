@@ -12,6 +12,9 @@ export const Header = () => {
             <NavLink to="/bystatehook">By useState Hook </NavLink>
           </li>
           <li className="navigation-item">
+            <NavLink to="/byuseContext">By useContext Hook </NavLink>
+          </li>
+          <li className="navigation-item">
             <NavLink to="/byusereducer"> By useReducer Hook</NavLink>
           </li>
           <li className="navigation-item">
