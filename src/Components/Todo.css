@@ -127,3 +127,11 @@ ul {
     font-family: 'Comme', sans-serif;
     text-align: justify;
   }
+
+  .info-header {
+    text-align: center;
+  }
+
+  .info-container ul {
+    list-style-type: none;
+  }

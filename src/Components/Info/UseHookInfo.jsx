@@ -3,7 +3,7 @@ import React from "react";
 export const UseHookInfo = () => {
   return (
     <div className="info-container">
-      <h3>useState Hook</h3>
+      <h3 className="info-header">useState Hook</h3>
       <p>
         <ul>
           <li className="content-list-item">
