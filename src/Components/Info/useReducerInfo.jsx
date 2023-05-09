@@ -3,7 +3,7 @@ import React from "react";
 export const UseReducerInfo = () => {
   return (
     <div className="info-container">
-      <h3>useReducer Hook</h3>
+      <h3 className="info-header">useReducer Hook</h3>
       <p>
         <ul>
           <li className="content-list-item">
