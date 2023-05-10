@@ -4,9 +4,8 @@ import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import { TodoMeta } from "./TodoMeta";
 import { TodoSelect } from "./TodoSelect";
 import { Button } from "./Button";
-import "./Todo.css";
 import { UseHookInfo } from "./Info/useHookInfo";
-
+import "./Todo.css";
 
 let nextId = 4;
 
@@ -65,13 +64,7 @@ export const Todo = () => {
     setTodos(updatedTodos);
   };
 
-  const getTodos = () => {
-    if(filterValue === 'all') {
-      return todos
-    } else {
-      return todos.filter((todo) => todo.priority === filterValue)
-    }
-  }
+  const getTodos = () => filterValue === 'all' ? todos : todos.filter((todo) => todo.priority === filterValue)
 
   return (
     <main className="content">
