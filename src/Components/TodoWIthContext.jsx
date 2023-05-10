@@ -4,10 +4,11 @@ import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import { TodoContext } from "../context";
 import { Button } from "./Button";
 import { TodoForm } from "./TodoForm";
-import "./Todo.css";
 import { TodoSelect } from "./TodoSelect";
 import { TodoMeta } from "./TodoMeta";
 import { UseContextInfo } from "./Info/useContextInfo";
+import "./Todo.css";
+
 
 export const TodoWithContext = () => {
   const { todos, deleteTodo, changeTodoStatus } = useContext(TodoContext);
