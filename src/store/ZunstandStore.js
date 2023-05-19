@@ -42,4 +42,3 @@ export const useZustandStore = create((set) => ({
         return { todos: newTodos }
     }) 
   }))
-  

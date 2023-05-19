@@ -1,0 +1,27 @@
+.accordion-header {
+    width: 800px;
+    font-weight: 600;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 2px;
+}
+
+.accordion-content {
+    font-size: 18px;
+    text-align: left;
+    width: 800px;
+    padding: 10px;
+}
+.label-icon {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.label {
+    font-size: 22px;
+}
+
+.accordion {
+    height: auto;
+}
