@@ -20,6 +20,9 @@ export const Header = () => {
           <li className="navigation-item">
             <NavLink to="/byreduxtoolkit">By Redux Toolkit</NavLink>
           </li>
+          <li className="navigation-item">
+             <NavLink to="/byZustand">Zustand</NavLink>
+          </li>
         </ul>
       </nav>
     </div>

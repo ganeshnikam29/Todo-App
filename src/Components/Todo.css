@@ -135,3 +135,7 @@ ul {
   .info-container ul {
     list-style-type: none;
   }
+
+  input[type="checkbox"] {
+    transform: scale(1.5);
+  }
