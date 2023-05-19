@@ -21,7 +21,7 @@ export const Header = () => {
             <NavLink to="/byreduxtoolkit">By Redux Toolkit</NavLink>
           </li>
           <li className="navigation-item">
-             <NavLink to="/byZustand">Zustand</NavLink>
+             <NavLink to="/byZustand">By Zustand</NavLink>
           </li>
         </ul>
       </nav>

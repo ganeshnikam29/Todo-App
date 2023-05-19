@@ -5,6 +5,7 @@ import { AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import { TbCircleChevronsDown, TbCircleChevronsUp } from "react-icons/Tb";
 import { TodoSelect } from "./TodoSelect";
 import { TodoMeta } from "./TodoMeta";
+import { ZustandInfo } from "./Info/ZustandInfo";
 
 let nextId = 4;
 export const ZustandDemo = () => {
@@ -20,8 +21,7 @@ export const ZustandDemo = () => {
     deleteTodo,
     changeTodoStatus
   } = useZustandStore((state) => state);
-  console.log(filterValue);
-
+  
   const handleAddTodo = () => {
     addTodo({ title: input, id: nextId++, done: false, priority: priority });
   };
@@ -108,6 +108,7 @@ export const ZustandDemo = () => {
           })}
         </ul>
       </div>
+      <ZustandInfo />
     </main>
   );
 };
